@@ -5,6 +5,8 @@ import {
   Route,
 } from 'react-router-dom'
 
+import GlobalStyles from '../styles/global'
+
 import routes from './routes'
 
 const Routes = () => (
@@ -26,7 +28,7 @@ const Routes = () => (
         ))}
       </Switch>
     </Suspense>
-
+   <GlobalStyles />
   </Router>
 )
 
