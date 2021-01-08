@@ -15,8 +15,7 @@ const Routes = () => (
       <Switch>
         {routes.map((route) => (
           <Route
-          // change key
-            key={Math.random()}
+            key={route.name}
             path={route.path}
             render={(props) => (
               <route.component
@@ -24,6 +23,7 @@ const Routes = () => (
                 routes={route.routes}
               />
             )}
+            exact
           />
         ))}
       </Switch>

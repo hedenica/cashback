@@ -4,6 +4,6 @@ export default [
   {
     path: '/',
     component: lazy(() => import('./views/SignIn')),
-    nome: 'home'
+    name: 'home'
   }
 ]
