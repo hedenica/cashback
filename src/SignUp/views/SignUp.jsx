@@ -29,6 +29,12 @@ const SignUp = () => {
               required
             />
             <Input
+              name="document"
+              type="text"
+              placeholder="Digite seu CPF"
+              required
+            />
+            <Input
               name="email"
               type="email"
               autoComplete="username"
@@ -42,7 +48,7 @@ const SignUp = () => {
               placeholder="Digite sua senha"
               required
             />
-            <Button type="submit">Entrar</Button>
+            <Button type="submit">Cadastrar</Button>
           </Form>
 
           <p>Já tem cadastro ? </p>
