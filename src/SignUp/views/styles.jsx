@@ -46,7 +46,7 @@ export const AnimationContainer = styled.div`
   }
 
   form {
-    margin: -50px 0px 50px 0px;
+    margin: 50px 0;
     width: 400px;
     text-align: center;
 

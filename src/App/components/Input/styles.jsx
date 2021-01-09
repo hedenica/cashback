@@ -28,6 +28,7 @@ export const Container = styled.div`
     isFilled &&
     css`
       color: #fbab8c;
+      border-color: #fbab8c;
     `}
 
   input {
