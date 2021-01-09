@@ -13,12 +13,14 @@ import logoImg from '../../assets/img/logo.png';
 const SignIn = () => {
   const formRef = useRef(null);
 
+  const handleSubmit = () => console.log('logou!');
+
   return (
     <Container>
       <Content>
         <AnimationContainer>
           <img src={logoImg} alt="O Boticário" />
-          <Form ref={formRef} onSubmit={() => console.log('submit!')}>
+          <Form ref={formRef} onSubmit={handleSubmit}>
             <h1>Faça seu Login</h1>
             <Input
               name="email"
@@ -37,8 +39,8 @@ const SignIn = () => {
             <Button type="submit">Entrar</Button>
           </Form>
 
-          <p>Não possui uma conta? </p>
-          <Link to="/">
+          <p>Não possui uma conta ? </p>
+          <Link to="/cadastro">
             <LogIn />
             Clique aqui para se cadastrar!
           </Link>
