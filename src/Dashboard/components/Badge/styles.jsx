@@ -49,4 +49,9 @@ export const Container = styled.div`
       background: #ffd1d1;
       color: #802323;
     `}
+
+    @media (max-width: 425px) {
+    font-size: 14px;
+    min-width: 100px;
+  }
 `;

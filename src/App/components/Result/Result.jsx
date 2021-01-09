@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, Image, Content } from './styles';
+import { Container, Content } from './styles';
 
 const Result = ({ image, title, description, callToAction }) => (
   <Container>
-    <Image>{image}</Image>
+    {image}
     <Content>
       <h4>{title}</h4>
       <p>{description}</p>
