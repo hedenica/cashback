@@ -14,7 +14,7 @@ const Header = () => {
         <ArrowLeft />
         Voltar
       </GoBack>
-      <h1>👋 Olá, Hedênica Morais</h1>
+      <h1>Olá, Hedênica Morais</h1>
       <BalanceContainer>
         <Balance type="button" onClick={toggleShowCurrentBalance}>
           {isVisible ? <EyeOff /> : <Eye />}

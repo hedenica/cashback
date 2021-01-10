@@ -47,3 +47,27 @@ export const Mobile = styled.div`
     font-size: 14px;
   }
 `;
+
+export const ModalSecondContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+
+  h3 {
+    margin-bottom: 30px;
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  svg {
+    width: 25px;
+    margin-right: 10px;
+    color: #ff8757;
+  }
+`;
