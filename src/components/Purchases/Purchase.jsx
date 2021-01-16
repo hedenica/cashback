@@ -14,7 +14,15 @@ import cashbackAnimation from '../../assets/lotties/piggy-bank-coins.json';
 import { Container, Details, Mobile, ModalSecondContent } from './styles';
 import animationConfig from '../../utils/animation';
 
-const Purchase = ({ status, date, code, value, onDelete }) => {
+const Purchase = ({
+  status,
+  date,
+  code,
+  value,
+  percentage,
+  cashback,
+  onDelete,
+}) => {
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => setShowModal(!showModal);
@@ -42,7 +50,7 @@ const Purchase = ({ status, date, code, value, onDelete }) => {
       </p>
       <p>
         <Percent />
-        Cashback aplicado - 3%
+        Cashback aplicado - {percentage}%
       </p>
       <p>
         <DollarSign />
@@ -50,7 +58,7 @@ const Purchase = ({ status, date, code, value, onDelete }) => {
       </p>
       <p>
         <RefreshCcw />
-        Cashback - R$ 4,50
+        Cashback - {cashback}
       </p>
       <Badge size="medium" variation={status}>
         {currentStatus[status]}
@@ -107,11 +115,13 @@ const Purchase = ({ status, date, code, value, onDelete }) => {
 export default Purchase;
 
 Purchase.propTypes = {
+  cashback: PropTypes.string.isRequired,
   code: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
+  onDelete: PropTypes.func,
+  percentage: PropTypes.number.isRequired,
   status: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
-  onDelete: PropTypes.func,
 };
 
 Purchase.defaultProps = {

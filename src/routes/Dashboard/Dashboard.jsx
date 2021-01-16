@@ -48,9 +48,24 @@ const Dashboard = () => {
     <FormContent>
       <h1>Cadastrar compra</h1>
       <Form ref={formRef} onSubmit={handleSubmit}>
-        <Input name="date" type="date" placeholder="Data da compra" required />
-        <Input name="code" type="text" placeholder="Código da compra" required />
-        <Input name="value" type="text" placeholder="Valor da compra" required />
+        <Input 
+          name="date" 
+          type="date" 
+          placeholder="Data da compra" 
+          required 
+        />
+        <Input 
+          name="code" 
+          type="number" 
+          placeholder="Código da compra" 
+          required 
+        />
+        <Input 
+          name="value" 
+          type="text" 
+          placeholder="Valor da compra" 
+          required 
+        />
         <Button type="submit">
           <Save />
           Salvar
