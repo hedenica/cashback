@@ -3,7 +3,7 @@ import { lazy } from 'react'
 export default [
   {
     path: '/',
-    component: lazy(() => import('./views/SignIn')),
+    component: lazy(() => import('./SignIn')),
     name: 'home'
   }
 ]

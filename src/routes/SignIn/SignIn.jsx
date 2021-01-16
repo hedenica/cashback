@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 
 import { Container, Content, AnimationContainer, Background } from './styles';
 
-import Button from '../../App/components/Button';
-import Input from '../../App/components/Input';
+import Button from '../../components/Button';
+import Input from '../../components/Input';
 
 import logoImg from '../../assets/img/logo.png';
 

@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Lottie from 'react-lottie';
@@ -6,13 +6,15 @@ import { ScreenClassRender } from 'react-grid-system';
 import { Calendar, Tag, Percent, DollarSign, RefreshCcw } from 'react-feather';
 
 import Badge from '../Badge';
+import Button from '../Button';
 import Modal from '../Modal';
 
-import cashbackAnimation from '../../../assets/lotties/piggy-bank-coins.json';
+import cashbackAnimation from '../../assets/lotties/piggy-bank-coins.json';
 
 import { Container, Details, Mobile, ModalSecondContent } from './styles';
+import animationConfig from '../../utils/animation';
 
-const Item = ({ status }) => {
+const Purchase = ({ status, date, code, value, onDelete }) => {
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => setShowModal(!showModal);
@@ -23,27 +25,20 @@ const Item = ({ status }) => {
     danger: 'Reprovado',
   };
 
-  const loadingAnimationConfig = {
-    loop: true,
-    autoplay: true,
-    animationData: cashbackAnimation,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid meet',
-    },
-  };
-
-  const animation = <Lottie height={400} options={loadingAnimationConfig} />;
+  const animation = (
+    <Lottie height={400} options={animationConfig(cashbackAnimation)} />
+  );
 
   const cashbackDetails = (
     <ModalSecondContent>
       <h3>Detalhes de Cashback</h3>
       <p>
         <Calendar />
-        Data - 10/01/2021
+        Data - {date}
       </p>
       <p>
         <Tag />
-        Código - 123456
+        Código - {code}
       </p>
       <p>
         <Percent />
@@ -51,7 +46,7 @@ const Item = ({ status }) => {
       </p>
       <p>
         <DollarSign />
-        Valor da compra - R$ 150,00
+        Valor da compra - {value}
       </p>
       <p>
         <RefreshCcw />
@@ -60,6 +55,7 @@ const Item = ({ status }) => {
       <Badge size="medium" variation={status}>
         {currentStatus[status]}
       </Badge>
+      <Button onClick={onDelete}>Excluir compra</Button>
     </ModalSecondContent>
   );
 
@@ -72,9 +68,9 @@ const Item = ({ status }) => {
           return isMobileScreen ? (
             <Container>
               <Mobile>
-                <span>10/01/2020</span>
-                <span>123456</span>
-                <p>R$150,00</p>
+                <span>{date}</span>
+                <span>{code}</span>
+                <p>{value}</p>
               </Mobile>
               <Badge size="medium" variation={status}>
                 {currentStatus[status]}
@@ -85,12 +81,12 @@ const Item = ({ status }) => {
             </Container>
           ) : (
             <Container>
-              <span>10/01/2020</span>
-              <span>123456</span>
+              <span>{date}</span>
+              <span>{code}</span>
               <Badge size="medium" variation={status}>
                 {currentStatus[status]}
               </Badge>
-              <p>R$150,00</p>
+              <p>{value}</p>
               <Details type="button" onClick={toggleModal}>
                 Detalhes
               </Details>
@@ -108,8 +104,16 @@ const Item = ({ status }) => {
   );
 };
 
-export default Item;
+export default Purchase;
 
-Item.propTypes = {
+Purchase.propTypes = {
+  code: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onDelete: PropTypes.func,
+};
+
+Purchase.defaultProps = {
+  onDelete: () => {},
 };

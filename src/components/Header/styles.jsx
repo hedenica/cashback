@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-import headerBackgroundImg from '../../../assets/img/floratta.png';
-// import headerBackgroundImg from '../../../assets/img/header-background.svg';
+import headerBackgroundImg from '../../assets/img/floratta.png';
 
 export const Container = styled.header`
   display: flex;

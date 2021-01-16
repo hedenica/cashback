@@ -3,7 +3,7 @@ import { lazy } from 'react'
 export default [
   {
     path: '/area-do-usuario',
-    component: lazy(() => import('./views/Dashboard')),
+    component: lazy(() => import('./Dashboard')),
     name: 'dashboard'
   }
 ]

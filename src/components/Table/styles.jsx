@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import backgroundImg from '../../../assets/img/header-background.svg';
+import backgroundImg from '../../assets/img/header-background.svg';
 
 export const TableContainer = styled.div`
   width: 100%;
