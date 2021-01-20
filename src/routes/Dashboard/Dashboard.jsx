@@ -22,28 +22,35 @@ import Table from '../../components/Table';
 import emptyStateAnimation from '../../assets/lotties/empty-bags.json';
 import loadingAnimation from '../../assets/lotties/loading.json';
 
+import { totalCashback, createPurchase } from '../../utils/cashback'
+
 import { FormContent } from './styles';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-
+  const { purchases } = useSelector(state => state);
   const formRef = useRef(null);
 
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => setShowModal(!showModal);
 
-  const { purchases } = useSelector(state => state);
-
   useEffect(() => {
-    dispatch(PurchasesActions.getPurchases());
+    dispatch(PurchasesActions.getPurchases({ userId: 1 }));
   }, [dispatch]);
 
   const handleSubmit = (data) => {
-    dispatch(PurchasesActions.addPurchase(data));
+    let formattedValue = data.value
+
+    if (data.value.includes(',')) {
+      formattedValue = data.value.replace(',', '.');
+    } 
+
+    dispatch(PurchasesActions.addPurchase({...data, value: formattedValue }))
+    
     toggleModal()
   }
-  
+
   const registerPurchase = (
     <FormContent>
       <h1>Cadastrar compra</h1>
@@ -56,14 +63,14 @@ const Dashboard = () => {
         />
         <Input 
           name="code" 
-          type="number" 
+          type="text" 
           placeholder="Código da compra" 
           required 
         />
         <Input 
           name="value" 
           type="text" 
-          placeholder="Valor da compra" 
+          placeholder="00,00"
           required 
         />
         <Button type="submit">
@@ -76,7 +83,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <Header />
+      <Header cashback={totalCashback(createPurchase(purchases.data))} />
       <Container>
         {purchases.loading ? (
           <Lottie height={300} options={animationConfig(loadingAnimation)} />

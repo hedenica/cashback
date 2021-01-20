@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { X } from 'react-feather';
 
 export const Background = styled.div`
@@ -14,6 +14,17 @@ export const Background = styled.div`
   z-index: 2;
 `;
 
+const appearFromTop = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+`;
+
 export const ModalWrapper = styled.div`
   width: 800px;
   height: 500px;
@@ -24,9 +35,20 @@ export const ModalWrapper = styled.div`
   position: absolute;
   z-index: 10;
   border-radius: 10px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  margin: 200px auto;
+
+  animation: ${appearFromTop} 1s;
+
+  @media (max-width: 767px) {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    bottom: 0;
+    border-radius: 0;
+    margin: auto;
+  }
 `;
 
 export const CloseModal = styled(X)`

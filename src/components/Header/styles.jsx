@@ -1,22 +1,43 @@
 import styled from 'styled-components';
 
-import headerBackgroundImg from '../../assets/img/floratta.png';
+import headerBackgroundImg from '../../assets/img/wave.png';
+
+export const Background = styled.div`
+  position: absolute;
+  background: url(${headerBackgroundImg});
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 500px;
+  transform: rotate(180deg);
+`;
 
 export const Container = styled.header`
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
   width: 100%;
   height: 250px;
   padding: 30px;
-  background: url(${headerBackgroundImg});
-  background-size: cover;
-  background-position: center;
 
   h1 {
-    margin: 20px 0;
     user-select: none;
+    font-size: 20px;
   }
+`;
+
+export const Avatar = styled.img`
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+`;
+
+export const UserInfo = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin: 20px 0;
 `;
 
 export const BalanceContainer = styled.div`
@@ -29,7 +50,7 @@ export const BalanceContainer = styled.div`
   }
 
   h2 {
-    font-size: 22px;
+    font-size: 20px;
     letter-spacing: 1.5px;
   }
 `;

@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
-import backgroundImg from '../../assets/img/header-background.svg';
-
 export const TableContainer = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 10px 0 0 10px;
-  background: url(${backgroundImg});
-  background-size: cover;
+  background: rgb(251, 171, 140);
+  background: linear-gradient(
+    38deg,
+    rgba(251, 171, 140, 1) 0%,
+    rgba(247, 141, 167, 1) 54%
+  );
 
   padding: 0 10px;
   display: flex;
@@ -24,6 +26,10 @@ export const TableContainer = styled.div`
   span {
     margin: 20px auto;
     font-size: 13px;
+  }
+
+  @media (max-width: 767px) {
+    border-radius: 0;
   }
 `;
 

@@ -9,14 +9,14 @@ export const FormContent = styled.div`
   color: #141414;
 
   h1 {
-    margin-bottom: 30px;
+    margin: 30px 0;
   }
 
   button {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px auto;
+    margin: 30px auto;
 
     svg {
       margin-right: 15px;
