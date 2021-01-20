@@ -71,6 +71,22 @@ export const AnimationContainer = styled.div`
       color: ${shade(0.2, '#fbab8c')};
     }
   }
+
+  @media (max-width: 425px) {
+    img {
+      width: 300px;
+    }
+
+    form {
+      width: 350px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    form {
+      width: 300px;
+    }
+  }
 `;
 
 export const Background = styled.div`
