@@ -4,9 +4,10 @@ import api from '../../service/api';
 
 import PurchasesConstants from '../../store/constants/purchases';
 
-function* getPurchases() {
+function* getPurchases({ payload }) {
+  const { userId } = payload 
   try {
-    const { data } = yield call(api.get, '/1/purchases')
+    const { data } = yield call(api.get, `/${userId}/purchases`)
 
     yield put({
       type: PurchasesConstants.GET_PURCHASES_SUCCESS,
