@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 import { Form } from '@unform/web';
@@ -7,6 +7,7 @@ import { LogIn } from 'react-feather';
 import { Container, Content, AnimationContainer, Background } from './styles';
 
 import * as UsersActions from '../../store/actions/user';
+import { cpfMask } from '../../utils/masks';
 
 import Button from '../../components/Button';
 import Input from '../../components/Input';
@@ -17,6 +18,12 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const { users } = useSelector(state => state);
   const formRef = useRef(null);
+
+  const [applyDocumentMask, setApplyDocumentMask] = useState('');
+
+  const handleDocumentChange = ({ target }) => {
+    setApplyDocumentMask(cpfMask(target.value));
+  };
 
   const history = useHistory();
 
@@ -50,7 +57,8 @@ const SignUp = () => {
               type="text"
               placeholder="Digite seu CPF"
               required
-              minLength={11}
+              value={applyDocumentMask}
+              onChange={handleDocumentChange}
             />
             <Input
               name="email"

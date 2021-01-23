@@ -4,7 +4,6 @@ import { Container } from 'react-grid-system';
 import { Form } from '@unform/web';
 import Lottie from 'react-lottie';
 import { Save } from 'react-feather';
-import { ToastContainer } from 'react-toastify';
 
 import * as PurchasesActions from '../../store/actions/purchases';
 import animationConfig from '../../utils/animation';
@@ -24,8 +23,6 @@ import loadingAnimation from '../../assets/lotties/loading.json';
 import { totalCashback, createPurchase } from '../../utils/cashback';
 
 import { FormContent } from './styles';
-
-import 'react-toastify/dist/ReactToastify.css';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -102,7 +99,6 @@ const Dashboard = () => {
         firstModalContent={<Table />}
         secondModalContent={registerPurchase}
       />
-      <ToastContainer />
     </>
   );
 };
