@@ -1,15 +1,14 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useField } from '@unform/core';
-import { AlertCircle } from 'react-feather';
 
-import { Container, Error } from './styles';
+import { Container } from './styles';
 
 const Input = ({ name, ...rest }) => {
   const inputRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
 
-  const { fieldName, defaultValue, error, registerField } = useField(name);
+  const { fieldName, defaultValue, registerField } = useField(name);
   const [isFilled, setIsFilled] = useState(false);
 
   const handleInputFocus = useCallback(() => {
@@ -39,11 +38,6 @@ const Input = ({ name, ...rest }) => {
         ref={inputRef}
         {...rest}
       />
-      {error && (
-        <Error title={error}>
-          <AlertCircle color="#c53030" size={20} />
-        </Error>
-      )}
     </Container>
   );
 };

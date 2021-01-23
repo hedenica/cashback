@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import Tooltip from '../Tooltip/Tooltip';
 
 export const Container = styled.div`
   background-color: #f7f8f9;
@@ -40,25 +39,6 @@ export const Container = styled.div`
 
     &::placeholder {
       color: #666360;
-    }
-  }
-`;
-
-export const Error = styled(Tooltip)`
-  height: 20px;
-  margin-left: 16px;
-
-  svg {
-    margin: 0;
-    cursor: pointer;
-  }
-
-  span {
-    background: #c53030;
-    color: #666360;
-
-    &::before {
-      border-color: #c53030 transparent;
     }
   }
 `;
