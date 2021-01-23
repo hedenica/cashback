@@ -53,18 +53,15 @@ const createPurchase = (purchases) => {
 const totalCashback = (purchases) => {
   const reducer = ((acc, current) => acc + current)
 
-  let balance = []
-  let total = '0'
+  let balance = [0]
   
   purchases.map((purchase) => {
     if (purchase.status === 'success') {
       balance.push(purchase.cashback)
     }
-
-    total = balance.reduce(reducer).toFixed(2)
   })
 
-  return total
+  return balance.reduce(reducer).toFixed(2)
 }
 
 export {
