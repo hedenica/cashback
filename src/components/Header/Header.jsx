@@ -1,22 +1,24 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { Eye, EyeOff, ArrowLeft } from 'react-feather';
+import { useSelector } from 'react-redux';
+import { Eye, EyeOff } from 'react-feather';
 import PropTypes from 'prop-types';
 
 import {
   Background,
-  Container,
-  Avatar,
-  BalanceContainer,
   Balance,
-  GoBack,
+  BalanceContainer,
+  Container,
+  Logo,
   UserInfo,
 } from './styles';
 
 import formatValue from '../../utils/formatValue';
 
-import avatarImg from '../../assets/img/avatar.svg';
+import logoImg from '../../assets/img/logo.png';
 
 const Header = ({ cashback }) => {
+  const { users } = useSelector(state => state);
   const [isVisible, setVisible] = useState(false);
 
   const toggleShowCurrentBalance = () => setVisible(!isVisible);
@@ -25,13 +27,9 @@ const Header = ({ cashback }) => {
     <>
       <Background />
       <Container>
-        <GoBack type="button">
-          <ArrowLeft />
-          Voltar
-        </GoBack>
+        <Logo src={logoImg} alt="Logo Boticário" />
         <UserInfo>
-          <Avatar src={avatarImg} alt="Avatar do Usuário" />
-          <h1>Hedênica Morais</h1>
+          {users.isLogged && <h1>{`Bem-vindx, ${users.data.name}`}</h1>}
         </UserInfo>
         <BalanceContainer>
           <Balance type="button" onClick={toggleShowCurrentBalance}>
@@ -43,7 +41,7 @@ const Header = ({ cashback }) => {
               <h2>{formatValue(parseFloat(cashback))}</h2>
             </>
           ) : (
-            <h3>Clique para visualizar seu saldo</h3>
+            <h3>Mostrar saldo atual</h3>
           )}
         </BalanceContainer>
       </Container>

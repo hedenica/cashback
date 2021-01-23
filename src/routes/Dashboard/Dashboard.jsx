@@ -1,11 +1,10 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container } from 'react-grid-system';
 import { Form } from '@unform/web';
 import Lottie from 'react-lottie';
 import { Save } from 'react-feather';
+import { ToastContainer } from 'react-toastify';
 
 import * as PurchasesActions from '../../store/actions/purchases';
 import animationConfig from '../../utils/animation';
@@ -22,9 +21,11 @@ import Table from '../../components/Table';
 import emptyStateAnimation from '../../assets/lotties/empty-bags.json';
 import loadingAnimation from '../../assets/lotties/loading.json';
 
-import { totalCashback, createPurchase } from '../../utils/cashback'
+import { totalCashback, createPurchase } from '../../utils/cashback';
 
 import { FormContent } from './styles';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -36,43 +37,37 @@ const Dashboard = () => {
   const toggleModal = () => setShowModal(!showModal);
 
   useEffect(() => {
-    dispatch(PurchasesActions.getPurchases({ userId: 1 }));
+    dispatch(PurchasesActions.getPurchases());
   }, [dispatch]);
 
-  const handleSubmit = (data) => {
-    let formattedValue = data.value
+  const handleSubmit = data => {
+    let formattedValue = data.value;
 
     if (data.value.includes(',')) {
       formattedValue = data.value.replace(',', '.');
-    } 
+    }
 
-    dispatch(PurchasesActions.addPurchase({...data, value: formattedValue }))
-    
-    toggleModal()
-  }
+    dispatch(PurchasesActions.addPurchase({ ...data, value: formattedValue }));
+
+    toggleModal();
+  };
+
+  const lottie = (
+    <Lottie height={300} options={animationConfig(emptyStateAnimation)} />
+  );
 
   const registerPurchase = (
     <FormContent>
       <h1>Cadastrar compra</h1>
       <Form ref={formRef} onSubmit={handleSubmit}>
-        <Input 
-          name="date" 
-          type="date" 
-          placeholder="Data da compra" 
-          required 
+        <Input name="date" type="date" placeholder="Data da compra" required />
+        <Input
+          name="code"
+          type="text"
+          placeholder="Código da compra"
+          required
         />
-        <Input 
-          name="code" 
-          type="text" 
-          placeholder="Código da compra" 
-          required 
-        />
-        <Input 
-          name="value" 
-          type="text" 
-          placeholder="00,00"
-          required 
-        />
+        <Input name="value" type="text" placeholder="00,00" required />
         <Button type="submit">
           <Save />
           Salvar
@@ -90,15 +85,10 @@ const Dashboard = () => {
         ) : (
           <Purchases purchases={purchases.data} />
         )}
-        {purchases.data.length === 0 && !purchases.loading  && (
+        {purchases.data.length === 0 && !purchases.loading && (
           <Result
             title="Oops, você ainda não possui compras cadastradas..."
-            image={(
-              <Lottie
-                height={300}
-                options={animationConfig(emptyStateAnimation)}
-              />
-            )}
+            image={lottie}
             callToAction={
               <Button onClick={toggleModal}>Cadastrar compra</Button>
             }
@@ -112,6 +102,7 @@ const Dashboard = () => {
         firstModalContent={<Table />}
         secondModalContent={registerPurchase}
       />
+      <ToastContainer />
     </>
   );
 };

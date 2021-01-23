@@ -8,7 +8,7 @@ export const Background = styled.div`
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 500px;
+  height: 550px;
   transform: rotate(180deg);
 `;
 
@@ -16,42 +16,31 @@ export const Container = styled.header`
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-bottom: 50px;
-  width: 100%;
-  height: 250px;
-  padding: 30px;
-
-  h1 {
-    user-select: none;
-    font-size: 20px;
-  }
+  padding: 20px;
+  height: 320px;
 `;
 
-export const Avatar = styled.img`
-  width: 30px;
-  height: 30px;
-  margin-right: 15px;
+export const Logo = styled.img`
+  width: 180px;
 `;
 
 export const UserInfo = styled.div`
   display: flex;
-  width: 100%;
   align-items: center;
   margin: 20px 0;
+
+  h1 {
+    font-size: 20px;
+  }
 `;
 
 export const BalanceContainer = styled.div`
   display: flex;
   flex-direction: column;
-
-  h3 {
-    margin: 5px 0;
-    font-size: 18px;
-  }
+  width: 300px;
 
   h2 {
-    font-size: 20px;
-    letter-spacing: 1.5px;
+    font-size: 22px;
   }
 `;
 
@@ -65,17 +54,6 @@ export const Balance = styled.button`
   }
 
   &:hover {
-    color: #fbab8c;
-  }
-`;
-
-export const GoBack = styled.button`
-  width: 70px;
-  display: flex;
-  align-items: center;
-  transition: color 0.2s;
-
-  &:hover {
-    color: #fbab8c;
+    color: white;
   }
 `;
