@@ -1,8 +1,7 @@
 import PurchaseConstants from '../constants/purchases';
 
-const getPurchases = ({ userId }) => ({
+const getPurchases = () => ({
   type: PurchaseConstants.GET_PURCHASES,
-  payload: { userId},
 });
 
 const addPurchase = ({ date, code, value }) => ({

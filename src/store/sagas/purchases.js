@@ -1,13 +1,14 @@
-import { all, takeLatest, call, put } from 'redux-saga/effects'
+import { all, takeLatest, call, put, select } from 'redux-saga/effects'
 
 import api from '../../service/api';
 
 import PurchasesConstants from '../../store/constants/purchases';
 
-function* getPurchases({ payload }) {
-  const { userId } = payload 
+function* getPurchases() {
+  const { data: { id } } = yield select(state => state.users)
+
   try {
-    const { data } = yield call(api.get, `/${userId}/purchases`)
+    const { data } = yield call(api.get, `users/${id}/purchases`)
 
     yield put({
       type: PurchasesConstants.GET_PURCHASES_SUCCESS,
@@ -24,7 +25,9 @@ function* getPurchases({ payload }) {
 
 function* addPurchase({ payload }) {
   try {
-    const { data } = yield call(api.post, '/1/purchases', {...payload })
+    const { data: { id } } = yield select(state => state.users)
+
+    const { data } = yield call(api.post, `users/${id}/purchases`, {...payload })
 
     yield put({
       type: PurchasesConstants.ADD_PURCHASE_SUCCESS,
@@ -41,17 +44,17 @@ function* addPurchase({ payload }) {
 
 function* deletePurchase({ payload }) {
   const { userId, purchaseId } = payload
-
+  
   try {
-   const { data } =  yield call(api.delete, `/${userId}/purchases/${purchaseId}`)
-
-   console.table(data)
-
+   yield call(api.delete, `users/${userId}/purchases/${purchaseId}`)
+  
     yield put({
       type: PurchasesConstants.DELETE_PURCHASE_SUCCESS,
-      payload: data,
     })
 
+    yield put({
+      type: PurchasesConstants.GET_PURCHASES,
+    })
   } catch(error) {
     yield put({
       type: PurchasesConstants.DELETE_PURCHASE_FAILURE,

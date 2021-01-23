@@ -57,24 +57,6 @@ const purchasesReducer = (state = INITIAL_STATE, action) => {
         break;
       }
 
-      case PurchasesConstants.DELETE_PURCHASE: {
-        draft.loading = true
-        draft.error = null;
-
-        break;
-      }
-
-      case PurchasesConstants.DELETE_PURCHASE_SUCCESS: {
-        draft.data.filter((purchase) => purchase.id !== action.payload.id)
-        draft.loading = false;
-        draft.error = null;
-      }
-
-      case PurchasesConstants.DELETE_PURCHASE_FAILURE: {
-        draft.loading = false;
-        draft.error = action.payload;
-      }
-
       default:
         return state
     }
