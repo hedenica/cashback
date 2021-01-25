@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Badge /> should render the badge component with danger variation and default size 1`] = `
+<div>
+  <div
+    class="sc-bdfBwQ broitX"
+  >
+    Reprovado
+  </div>
+</div>
+`;
+
+exports[`<Badge /> should render the badge component with default variation and large size 1`] = `
+<div>
+  <div
+    class="sc-bdfBwQ kSTJok"
+  >
+    Aprovado
+  </div>
+</div>
+`;
+
+exports[`<Badge /> should render the badge component with default variation and small size 1`] = `
+<div>
+  <div
+    class="sc-bdfBwQ bWwXU"
+  >
+    Aprovado
+  </div>
+</div>
+`;
+
+exports[`<Badge /> should render the badge component with success variation and default size 1`] = `
+<div>
+  <div
+    class="sc-bdfBwQ dPlSLx"
+  >
+    Aprovado
+  </div>
+</div>
+`;
+
+exports[`<Badge /> should render the badge component with the default variation and size 1`] = `
+<div>
+  <div
+    class="sc-bdfBwQ dPlSLx"
+  >
+    Aprovado
+  </div>
+</div>
+`;
+
+exports[`<Badge /> should render the badge component with warning variation and default size 1`] = `
+<div>
+  <div
+    class="sc-bdfBwQ hEtXwh"
+  >
+    Em revisão
+  </div>
+</div>
+`;

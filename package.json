@@ -36,7 +36,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "yarn build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "browserslist": {
@@ -52,6 +52,10 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-jest": "^26.6.3",
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-prettier": "^3.3.1",

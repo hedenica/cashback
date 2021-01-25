@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Eye, EyeOff } from 'react-feather';
@@ -28,17 +27,23 @@ const Header = ({ cashback }) => {
       <Background />
       <Container>
         <Logo src={logoImg} alt="Logo Boticário" />
-        <UserInfo>
+        <UserInfo data-testid="userInfo">
           {users.isLogged && <h1>{`Bem-vindx, ${users.data.name}`}</h1>}
         </UserInfo>
         <BalanceContainer>
-          <Balance type="button" onClick={toggleShowCurrentBalance}>
+          <Balance
+            type="button"
+            data-testid="balance"
+            onClick={toggleShowCurrentBalance}
+          >
             {isVisible ? <EyeOff /> : <Eye />}
           </Balance>
           {isVisible ? (
             <>
               <h3>Seu saldo atual é:</h3>
-              <h2>{formatValue(parseFloat(cashback))}</h2>
+              <h2 data-testid="cashback">
+                {formatValue(parseFloat(cashback))}
+              </h2>
             </>
           ) : (
             <h3>Mostrar saldo atual</h3>

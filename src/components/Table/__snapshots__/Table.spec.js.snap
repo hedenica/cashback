@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Table/> should render the table content 1`] = `
+<div>
+  <div
+    class="sc-bdfBwQ hcnFOp"
+  >
+    <h3>
+      Regras de Cashback
+    </h3>
+    <table
+      class="sc-gsTCUz hUQIQL"
+    >
+      <thead>
+        <tr>
+          <td>
+            <svg
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line
+                x1="19"
+                x2="5"
+                y1="5"
+                y2="19"
+              />
+              <circle
+                cx="6.5"
+                cy="6.5"
+                r="2.5"
+              />
+              <circle
+                cx="17.5"
+                cy="17.5"
+                r="2.5"
+              />
+            </svg>
+            Percentagem
+          </td>
+          <td>
+            <svg
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <line
+                x1="12"
+                x2="12"
+                y1="1"
+                y2="23"
+              />
+              <path
+                d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+              />
+            </svg>
+            Valores de Compra
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            5%
+          </td>
+          <td>
+            R$50,00 até R$200,00
+          </td>
+        </tr>
+        <tr>
+          <td>
+            10%
+          </td>
+          <td>
+            R$200,01 até R$500,00
+          </td>
+        </tr>
+        <tr>
+          <td>
+            15%
+          </td>
+          <td>
+            R$500,01
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <span>
+      * Compras acima de R$501,00 ficam em análise por 2 dias úteis
+    </span>
+  </div>
+</div>
+`;

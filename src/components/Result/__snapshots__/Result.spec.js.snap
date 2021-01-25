@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Result /> should render the result component with image 1`] = `
+<div>
+  <div
+    class="sc-bdfBwQ hPHeAY"
+  >
+    
+    <div
+      class="sc-gsTCUz bEPrJK"
+    >
+      <h4 />
+      <p />
+    </div>
+  </div>
+</div>
+`;
