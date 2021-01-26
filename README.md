@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Boticário" src="./src/assets/img/logo.png" width="200px" />
+    <img alt="Boticário" src="./src/assets/img/read-img.png" width="250px" />
 </h1>
 
 <h1 align="center">
