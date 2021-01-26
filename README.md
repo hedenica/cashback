@@ -45,6 +45,7 @@ A aplicação tem como objetivo simular as funcionalidades reais de cashback, da
 
 > Compras até `R$ 50,00` não geram cashback e o status `REPROVADO` é aplicado automaticamente.
 > Compras entre `R$ 50,01` e `R$ 500,00` recebem o status `APROVADO`.
+> Compras acima de `R$ 500,01` recebem o status de `EM ANÁLISE`.
 
 
 | ﹪ Porcentagem | 💸  Valores de Compra |
