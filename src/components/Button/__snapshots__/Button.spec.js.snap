@@ -10,14 +10,3 @@ exports[`<Button /> should match the button snapshot 1`] = `
   </button>
 </div>
 `;
-
-exports[`it should match the button snapshot 1`] = `
-<div>
-  <button
-    class="sc-bdfBwQ ifSYyB"
-    type="button"
-  >
-    Clique aqui
-  </button>
-</div>
-`;

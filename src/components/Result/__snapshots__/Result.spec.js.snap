@@ -11,6 +11,12 @@ exports[`<Result /> should render the result component with image 1`] = `
     >
       <h4 />
       <p />
+      <button
+        class="sc-dlfnbm iegysi"
+        type="button"
+      >
+        Clique aqui
+      </button>
     </div>
   </div>
 </div>
